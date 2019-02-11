@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire</title>
+</head>
+<body>
+        <form id="frm">
+        Sexe : <input type="radio" id ="radHom" name="Sexe" > Homme <input type="radio" name = "Sexe" id ="radFem"> Femme <br>
+        Nom : <input type="text" id="txtNom" onfocus=veriftxt(this)><br>
+        Prenom : <input type="text" id="txtPrenom" onfocus=veriftxt(this)><br>
+        Langue : 
+        <select id = "lang">
+                <option value="default"> </option>
+                <option value="fr">Français</option>
+                <option value="en">Anglais</option>
+                <option value="es">Espagnol</option>
+                <option value="ja">Japonais</option>
+        </select><br> 
+        
+        <input type="checkbox" name ="AcceptRGPD"> J'accepte la soumission de mes données conformément aux régles imposées par la RGPD.
+        <br>
+        
+        <input type="button" onclick="submit()" value="Submit"> <input type="button" onclick="raz(frm)" value="Reset">
+        
+        </form>
+        <script src="js/test.js"></script>
+</body>
+</html>
