@@ -1,6 +1,6 @@
 var todoApp = angular.module("todoApp",[]);
 
-todoApp.cotroller("TestCtrl",["$scope",function($scope){
+todoApp.controller("TestCtrl",["$scope",function($scope){
     $scope.firstName = "test";
 
 }]);
