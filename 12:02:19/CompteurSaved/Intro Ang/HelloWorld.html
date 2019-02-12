@@ -10,14 +10,7 @@
         <h1>Hello {{ name }} !</h1>
         <h2>Hello <span ng-bind="name"></span> !</h2>
     </div>
-    
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
-
-    <script>
-    var helloApp = angular.module("helloApp",[]);
-    helloApp.controller('HelloCtrl',['$scope',function($scope){
-        $scope.name='you';
-    }]);
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>

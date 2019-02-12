@@ -6,6 +6,7 @@ Ce répertoire permet de mettre en ligne l'ensemble des pages web, js et ang fai
 
 - Site Hello World (intro HTTP)
 - Site switch (changer image)
+- Formulaire (à finir)
 
 ## Deuxième Cours (12/02)
 
