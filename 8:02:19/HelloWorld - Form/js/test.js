@@ -1,6 +1,4 @@
 
-//Voir dans /test2 l'index associé
-
 document.addEventListener("DOMContentLoaded", function(event){
   console.log("Dom loaded");
 });
