@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="helloApp">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Hello Wolrd !</title>
+</head>
+<body>
+    <div ng-controller = "HelloCtrl">
+        <h1>Yaw {{ name }} !</h1>
+        <h2>Yaw <span ng-bind="name"></span> !</h2>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+
+    <script>
+    var helloApp = angular.module("helloApp",[]);
+    helloApp.controller('HelloCtrl',['$scope',function($scope){
+        $scope.name='Rewind Time';
+    }]);
+    </script>
+</body>
+</html>

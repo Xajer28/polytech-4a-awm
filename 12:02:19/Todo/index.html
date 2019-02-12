@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="counterApp">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Todo</title>
+</head>
+<body ng-controller = "TestCtrl">
+    <h2>Controller 1</h2>
+    Votre prénom : <input type='text' ng-model='firstname'>    
+    <br/>
+    <br/>
+    Hello {{firstname}} ! <br>
+    Hello <span ng-bind = "firstname"></span>
+    <br>
+    <br>
+    <button ng-click = "modifyFirstName()">Modifier le nom</button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div ng-controller ="Test2Ctrl">
+        <h2>Controller 2</h2>
+        Hello {{firstname}} !
+    </div>
+        <script src="assets/js/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+        <script src = "js/Todo.js"></script>
+</body>
+
+
+</html>
