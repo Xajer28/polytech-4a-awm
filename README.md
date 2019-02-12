@@ -1,6 +1,6 @@
 # Applications Web & Mobiles - Polytech 4A - Laborde
 
-Ce répertoire permet de mettre en ligne l'ensemble des pages web et js fait en cours et TD.
+Ce répertoire permet de mettre en ligne l'ensemble des pages web, js et ang fait en cours et TD.
 
 ## Premier Cours (08/12)
 
