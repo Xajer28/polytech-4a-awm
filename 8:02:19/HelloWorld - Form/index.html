@@ -5,26 +5,29 @@
     <title>Formulaire</title>
 </head>
 <body>
-        <h1>Hello World !</h1>
-        <form id="frm">
-        Sexe : <input type="radio" id ="radHom" name="Sexe" > Homme <input type="radio" name = "Sexe" id ="radFem"> Femme <br>
-        Nom : <input type="text" id="txtNom" onfocus=veriftxt(this)><br>
-        Prenom : <input type="text" id="txtPrenom" onfocus=veriftxt(this)><br>
-        Langue : 
-        <select id = "lang">
-                <option value="default"> </option>
-                <option value="fr">Français</option>
-                <option value="en">Anglais</option>
-                <option value="es">Espagnol</option>
-                <option value="ja">Japonais</option>
-        </select><br> 
-        
-        <input type="checkbox" name ="AcceptRGPD"> J'accepte la soumission de mes données conformément aux régles imposées par la RGPD.
-        <br>
-        
-        <input type="button" onclick="submit()" value="Submit"> <input type="button" onclick="raz(frm)" value="Reset">
-        
-        </form>
         <script src="js/test.js"></script>
+        
+        <h1>Hello World !</h1>
+
+        <form id="frm" >
+                <p>Sexe : <input type="radio" id ="radHom" name="sexe" class ="toCheck"> Homme <input type="radio" name = "sexe" id ="radFem" class ="toCheck"> Femme</p>
+                <p>Nom : <input type="text" id="txtNom" class ="toCheck" onfocusout=veriftxtnom()></p>
+                <p>Prenom : <input type="text" id="txtPrenom" class="toCheck" onfocusout=veriftxtprenom()></p>
+                <p>Langue : 
+                        <select id = "lang" class="toCheck">
+                                <option value="default"> </option>
+                                <option value="fr">Français</option>
+                                <option value="en">Anglais</option>
+                                <option value="es">Espagnol</option>
+                                <option value="ja">Japonais</option>
+                        </select>
+                </p> 
+                
+                <p><input type="checkbox" class="toCheck" id="AcceptRGPD"> J'accepte l'émission de mes données conformément aux régles imposées par la RGPD.</p> 
+                
+                <button type="button" onclick="verif()">Submit</button> <button type ="button" onclick="raz(frm)">Reset</button>
+                
+        </form>
+        
 </body>
 </html>
