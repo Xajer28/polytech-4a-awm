@@ -87,7 +87,7 @@ function verif(){
   var ok=true;
 
   //Boutons Radios
-  if(!(document.getElementsByName("sexe").selected)){
+  if(!(document.getElementById("radHom").checked || document.getElementById("radFem").checked)){
     ok=false;
     alert("Le choix du sexe n'a pas été sélectionné");
   }
@@ -98,6 +98,7 @@ function verif(){
     ok = false;
     alert("Veuillez resaisir le nom");
   }
+
   if (!(veriftxtprenom())){
     ok=false;
     alert("Veuillez resaisir le prenom");
@@ -112,13 +113,19 @@ function verif(){
   //RGPD
   if(!(document.getElementById("AcceptRGPD").checked)){
     ok =false;
-    alert("Veuillez cocher la case RGPD");
+    alert("Veuillez accepter les règles de la RGPD");
   }
 
   //Vérification Générale
   if(ok){
-    alert("Félicitations");
+    var sel = document.getElementById('lang');
+    var opt = sel.options[sel.selectedIndex];
+
+    switch(opt.value){
+      case 'fr' : alert("Félicitations"); break;
+      case 'en' : alert("Congratulations");break;
+      case 'es' : alert("Félicidades"); break;
+      case 'ja' : alert("おめでとう"); break;
+    }
   }
-
-
 }
