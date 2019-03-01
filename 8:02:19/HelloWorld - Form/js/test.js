@@ -1,26 +1,12 @@
-
-document.addEventListener("DOMContentLoaded", function(event){
+document.addEventListener("DOMContentLoaded", function(){
   console.log("Dom loaded");
 });
 
-function fctHello(){
-    var name = document.getElementById("inName");
-    var strToshow = 'Hello World';
-
-    if(name.value){
-        strToshow += " " + name.value + "!";
-    }
-
-    alert(strToshow);
-}
-
-//Fonction pour Formulaire
+//Fonctions pour Formulaire
 function raz(form) {
-  // clearing inputs
   var inputs = form.getElementsByTagName('input');
   for (var i = 0; i<inputs.length; i++) {
     switch (inputs[i].type) {
-      // case 'hidden':
       case 'text':
           inputs[i].value = '';
           break;
@@ -41,12 +27,13 @@ function raz(form) {
   return false;
 }
 
-
-function surligne(champ, erreur){
-   if(erreur)
-      champ.style.backgroundColor = "#fba";
-   else
-      champ.style.backgroundColor = "";
+function surligne(champ, erreur) {
+  console.log("cc");
+  if (erreur){
+    champ.classList.add("ErrorTextBox");
+  }else{
+    champ.classList.remove("ErrorTextBox");
+  }
 }
 
 function veriftxtnom(){
@@ -68,17 +55,17 @@ function veriftxtnom(){
 function veriftxtprenom(){
   var ok;
   var champ = document.getElementById("txtPrenom");
-   if(champ.value.length < 2 || champ.value.length > 25)
+  if(champ.value.length < 2 || champ.value.length > 25)
    {
       surligne(champ, true);
       ok=false;
    }
-   else
+  else
    {
       surligne(champ, false);
       ok= true;
    }
-   return ok;
+  return ok;
 }
 
 
@@ -93,8 +80,7 @@ function verif(){
   }
 
   //Vérification des champs
-  if(!(veriftxtnom()))
-  {
+  if(!(veriftxtnom())){
     ok = false;
     alert("Veuillez resaisir le nom");
   }
