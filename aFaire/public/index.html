@@ -4,21 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Titre -->
     <title>Liste Choses a Faire</title>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-    <script src="/public/index.js"></script>
+    <!-- Importation des scripts pour cette page -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="index.js"></script>
 </head>
+
+
 <body ng-controller ='mainController'>
     <h1>La liste de Choses à faire</h1>
-    <br> Nombre de Choses : {{ laliste.length}}
+    <br> Nombre de Choses : {{ laliste.length }}
     <div id='todo-list'>
         <div ng-repeat='x in laliste'>
-            <h5><button ng-click="deleteTodo(x._id)">x</button> {{x.text}} </h5>
+            <h5><button ng-click="deleteTodo(x._id)"> x </button> {{x.text}} </h5>
         </div>
     </div>
+
     <div id='todo-form'>
         <form>
-            <input type="text" placeholder="écrire quelque chose" ng-model="formData.text">
+            <input type="text" placeholder="Tapez votre objectif" ng-model="formData.text">
+            <button type="submit" ng-click ="createTodo()">Ajouter</button>
         </form>
     </div>
     

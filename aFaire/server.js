@@ -1,22 +1,33 @@
+// Ce script décrit les actions effectués pour traiter les données du site dans le serveur
+
+// Utilisation des packages
 var express = require('express');
 var app = express();
-var mongoose = require('mongoose');
-var morgan = require('morgan');
+
+var mongoose = require('mongoose'); //Mongoose
+var morgan = require('morgan'); //Morgan
 var bodyParser = require('body-parser');
 
 app.use(express.static(__dirname+'/public'));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({'extended':'true'}));
 app.use(bodyParser.json());
-app.use(bodyParser.json({type : 'application/vnd.api+json'}));
+app.use(bodyParser.json({ type : 'application/vnd.api+json'}));
 
-mongoose.connect('mongodb://localhost/ListeaFaire',{
-    'useNewUrlParser' : true});
+mongoose.connect('mongodb://localhost/ListeaFaire', {
+    useNewUrlParser : true});
     var Liste = mongoose.model('Liste',{
         text : String
     });
 app.get('/',function(req,res){
-    res.sendFile('./public/index.html');
+    res.sendFile('/public/index.html');
+})
+
+app.get('/api/laliste',function(req,res){
+    Liste.find(function(err,laliste){
+        if(err) res.send(err);
+        res.json(laliste);
+    })
 })
 
 app.post('/api/laliste',function(req,res){
@@ -45,4 +56,4 @@ app.delete('/api/laliste/:liste_id', function(req,res){
 });
 
 app.listen(8080);
-console.log("on utilise le port : 8080");
+console.log("Rendez-vous au port 8080");
