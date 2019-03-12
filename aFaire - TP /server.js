@@ -14,21 +14,25 @@ app.use(bodyParser.urlencoded({'extended':'true'}));
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type : 'application/vnd.api+json'}));
 
+//Connection à la base MongoDB
 mongoose.connect('mongodb://localhost/ListeaFaire', {
     useNewUrlParser : true});
-    var Liste = mongoose.model('Liste',{
-        text : String
-    });
+
+var Liste = mongoose.model('Liste',{
+    text : String
+});
+
 app.get('/',function(req,res){
     res.sendFile('/public/index.html');
-})
+});
 
 app.get('/api/laliste',function(req,res){
     Liste.find(function(err,laliste){
         if(err) res.send(err);
         res.json(laliste);
     })
-})
+});
+
 
 app.post('/api/laliste',function(req,res){
     Liste.create({
