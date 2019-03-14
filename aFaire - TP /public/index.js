@@ -6,7 +6,6 @@ var ListeaFaire = angular.module('ListeaFaire',[]);
 //Fonction de Controle pour effectuer les fonctions
 //que le serveur traitera par la suite
 function mainController($scope,$http){
-
     //Création de-'un récupératuer de données
     $scope.formData = {};
     //Récupération des données du serveur
@@ -33,7 +32,7 @@ function mainController($scope,$http){
             })
             .error(function(data){
                 console.log('Error:'+data);
-            });
+            })
     };
 
     //Fonction de suppression d'un élément de la liste
