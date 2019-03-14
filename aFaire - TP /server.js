@@ -20,6 +20,7 @@ mongoose.connect('mongodb://localhost/ListeaFaire', {
 
 var Liste = mongoose.model('Liste',{
     text : String
+    
 });
 
 app.get('/',function(req,res){
