@@ -11,8 +11,12 @@ var bodyParser = require('body-parser');
 app.use(express.static(__dirname+'/public'));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({'extended':'true'}));
-app.use(bodyParser.json());
+app.use(bodyParser.json()); //to support JSON encoded bodies
 app.use(bodyParser.json({ type : 'application/vnd.api+json'}));
+
+app.get('/',function(req,res){
+    res.sendFile('/public/index.html');
+});
 
 //Connection à la base MongoDB
 mongoose.connect('mongodb://localhost/ListeaFaire', {
@@ -23,10 +27,7 @@ var Liste = mongoose.model('Liste',{
     
 });
 
-app.get('/',function(req,res){
-    res.sendFile('/public/index.html');
-});
-
+// Récupération de la liste
 app.get('/api/laliste',function(req,res){
     Liste.find(function(err,laliste){
         if(err) res.send(err);
@@ -34,7 +35,7 @@ app.get('/api/laliste',function(req,res){
     })
 });
 
-
+// Ajout de l'élément dans la liste
 app.post('/api/laliste',function(req,res){
     Liste.create({
         text : req.body.text,
@@ -48,6 +49,7 @@ app.post('/api/laliste',function(req,res){
     });
 });
 
+// Supprimer un élément de la liste
 app.delete('/api/laliste/:liste_id', function(req,res){
     Liste.deleteOne({
         _id : req.params.liste_id 
@@ -60,5 +62,6 @@ app.delete('/api/laliste/:liste_id', function(req,res){
     });
 });
 
+//Choix de l'ouverture du port
 app.listen(8080);
 console.log("Rendez-vous au port 8080");
