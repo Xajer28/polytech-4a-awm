@@ -13,3 +13,11 @@ Ce répertoire permet de mettre en ligne l'ensemble des pages web, js et ang fai
 - Site Hello World (intro Angular)
 
 - Site Todo (changer nom en scope)
+
+## Troisièmes Cours (18/03)
+
+- Création de la base de données MongoDBAtlas
+
+## TP "Afaire"
+
+- Site de liste à faire en utilisant Mongoose
