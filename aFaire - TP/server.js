@@ -1,12 +1,17 @@
 // Ce script décrit les actions effectués pour traiter les données du site dans le serveur
+//"Partie Business"
 
-// Utilisation des packages
+
+// Serveur Web
 var express = require('express');
 var app = express();
-
-var mongoose = require('mongoose'); //Mongoose
-var morgan = require('morgan'); //Morgan
 var bodyParser = require('body-parser');
+
+//DataLayer : Lien vers le fichier de tranfert
+var dataLayer = app.require("./dataLayer.js");
+
+var morgan = require('morgan'); //Morgan
+
 
 app.use(express.static(__dirname+'/public'));
 app.use(morgan('dev'));
@@ -16,15 +21,6 @@ app.use(bodyParser.json({ type : 'application/vnd.api+json'}));
 
 app.get('/',function(req,res){
     res.sendFile('/public/index.html');
-});
-
-//Connection à la base MongoDB
-mongoose.connect('mongodb://localhost/ListeaFaire', {
-    useNewUrlParser : true});
-
-var Liste = mongoose.model('Liste',{
-    text : String
-    
 });
 
 // Récupération de la liste
