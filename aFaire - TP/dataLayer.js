@@ -5,35 +5,34 @@
 //Accès à la base MongoDB
 const MongoClient = require('mongodb').MongoClient;
 //Lien de récupération
-const uri = "mongodb+srv://xajer28:.dEC8>eY[h+b@cluster0-f2lls.mongodb.net/test?retryWrites=true";
+const uri = "mongodb+srv://xajer28:xajer28@cluster0-f2lls.mongodb.net/test?retryWrites=true";
 const client = new MongoClient(uri, { useNewUrlParser: true });
 
-var db;
 
 //Définition des méthodes d'envoi des données
 var dataLayer = {
     init : function(cb){
-        client.connect(function(err){
+        client.connect(uri,function(err){
             if (err) throw err;
-
-            
-            db = client.db("Polybase");
+            const db = client.db;
             cb();
         });
+        
     },
 
     getTaskSet : function(cb){
-        db.collection("Polycollection").find({}).toArray(function(err,docs){
+        const db = client.db;
+        db.collection(Polydatabase.Polyliste).find({}).toArray(function(err,docs){
             cb(docs);
         });
     },
 
     insertTaskSet : function(task,cb){
-        db.collection("Polycollection").insertOne(task, function(err,result){
+        const db = client.db;
+        db.collection(Polydatabase.Polyliste).insertOne(task, function(err,result){
             cb();
         })
     }
-
 };
 
 module.exports = dataLayer;

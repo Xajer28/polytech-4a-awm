@@ -24,7 +24,7 @@ function mainController($scope,$http){
     //Fonction d'ajout d'un élément dans une liste
     $scope.createTodo = function(){
         //Envoi de l'élément dans le tableau de données
-        $http.post('api/laliste',$scope.formData)
+        $http.post('/api/laliste',$scope.formData)
             .success(function(data){
                 $scope.formData = {};
                 $scope.laliste = data;
