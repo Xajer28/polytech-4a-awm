@@ -40,7 +40,7 @@ app.get('/api/laliste',function(req,res){
 
 // Ajout de l'élément dans la liste
 app.post('/api/laliste',function(req,res){
-    Liste.create({
+    ListeaFaire.create({
         text : req.body.text,
         done : false
     }, function (err,liste){

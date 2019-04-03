@@ -20,6 +20,10 @@ var dataLayer = {
         
     },
 
+    createList : function(cb){
+        db.createCollection()
+    },
+
     getTaskSet : function(cb){
         const db = client.db;
         db.collection(Polydatabase.Polyliste).find({}).toArray(function(err,docs){
