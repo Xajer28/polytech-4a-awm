@@ -9,8 +9,10 @@ var bodyParser = require('body-parser');
 
 
 //DataLayer : Lien vers le fichier de tranfert
-var dataLayer = require("./dataLayer.js");
+var dataLayer = require("./config/dataLayer.js");
 var morgan = require('morgan'); //Morgan : Logger, crée les fichiers logs
+
+
 
 //init parser
 app.use(express.static(__dirname+'/public'));
@@ -32,49 +34,8 @@ app.get('/',function(req,res){
 });
 
 // Récupération de la liste
-app.get('/api/laliste',function(req,res){
+app.get('/getTaskSet',function(req,res){
     dataLayer.getTaskSet(function(laliste){
         res.send(laliste);
     })
 });
-
-// Ajout de l'élément dans la liste
-app.post('/api/laliste',function(req,res){
-    ListeaFaire.create({
-        text : req.body.text,
-        done : false
-    }, function (err,liste){
-        if (err) res.send(err);
-        Liste.find(function(err,laliste){
-            if(err) res.send(err);
-            res.json(laliste);
-        });
-    });
-});
-
-app.post("/addTask",function(req,res){
-    console.log(req.body.name);
-    // if(req.body && typeof.req.body.name != "undefined" && typeof.req.body.name != "object"){
-        
-    //     var task = {
-    //         name : req.body.name,
-    //         done : req.body.done
-    //     };
-    //     dataLayer.insertTaskSet(task,function(){
-    //         res.send({success : true})
-    //     })
-    
-});
-
-// Supprimer un élément de la liste
-// app.delete('/api/laliste/:liste_id', function(req,res){
-//     Liste.deleteOne({
-//         _id : req.params.liste_id 
-//     },function(err,liste){
-//         if(err) res.send(err);
-//         Liste.find(function (err, laliste){
-//             if(err) res.send(err);
-//             res.json(laliste);
-//         });
-//     });
-// });
