@@ -27,7 +27,7 @@
     <div id='todo-list'>
         <div ng-repeat='x in laliste'>
             <!-- Chaque ligne possède le nom et un bouton supprimer -->
-            <h5><button ng-click="deleteTaskOne(x._id)"> x </button> <button ng-click="Task_Done(x._id)"> V </button>  {{ x.name }} </h5>
+            <h5><button ng-click="deleteTaskOne(x._id)"> x </button> <button ng-click="Task_Done(x._id)"> V </button>  Nom : {{ x.name }} - Terminé : {{x.done}}</h5>
         </div>
     </div>
 
@@ -38,6 +38,5 @@
             <button type="submit" ng-click ="createTodo()">Ajouter</button>
         </form>
     </div>
-    
 </body>
 </html>
