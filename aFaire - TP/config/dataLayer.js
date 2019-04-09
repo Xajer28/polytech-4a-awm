@@ -10,35 +10,46 @@ var client = new MongoClient(db.url, { useNewUrlParser: true });
 
 var DB;
 
+var ObjectId = require('mongodb').ObjectID;
 
 //Définition des méthodes d'envoi des données
 var dataLayer = {
     init : function(cb){
         client.connect(db.url,(err,database) =>{ 
             if (err) throw err;
-            DB = database.db('Polybase')
+            DB = database.db('Polydatabase');
             cb();
         });
-        
     },
 
-    // createList : function(cb){
-    //     db.createCollection();
-    // },
+
+    createTask : function(task,cb){
+        DB.collection("PolyListe").insertOne(task, function(err){
+            if(err) throw err;
+            DB.collection("PolyListe").find({}).toArray(function(err,docs){
+                cb(docs);
+            });
+        });
+    },
 
     getTaskSet : function(cb){
-        DB.collection("Polyliste").find({}).toArray(function(err,docs){
+        DB.collection("PolyListe").find({}).toArray(function(err,docs){
             cb(docs);
         });
-    }
-    /*,
-
-    insertTask : function(task,cb){
-        const db = client.db;
-        db.collection("Polyliste").insertOne(task, function(err,result){
-            cb();
-        })
     },
+
+    deleteTaskOne : function(task,cb){
+        var tache = {_id: ObjectId(task._id) };
+        DB.collection("PolyListe").deleteOne(tache,function(err){
+            if (err) throw err;
+            DB.collection("PolyListe").find({}).toArray(function(err,docs){
+                cb(docs);
+            });
+            
+        });
+    }
+
+/*
 
     updateTask : function(id, task, cb){
         ObjectID = require('mongodb').ObjectID; 
@@ -50,7 +61,6 @@ var dataLayer = {
             cb();
         });
     }*/
-
 };
 
 module.exports = dataLayer;

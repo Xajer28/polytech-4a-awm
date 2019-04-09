@@ -38,15 +38,15 @@ function mainController($scope,$http){
 
     //Fonction de suppression d'un élément de la liste
     $scope.deleteTaskOne = function(id){
+
         //Pour cela on utilise la fonction delete de js 
         // en précisant l'id de l'élément à supprimer
-        console.log("Element à supprimer : "+ id);
+        console.log("Element supprimé : "+ id);
 
         $http.delete('/DeleteTaskOne/'+id)
-            .success(function(maj){
-                console.log("Element Supprimé");
-                $scope.laliste = maj;
-                console.log(maj);
+            .success(function(data){
+                $scope.laliste = data;
+                console.log(data);
             })
             .error(function(data){
                 console.log('Error : '+ data);
