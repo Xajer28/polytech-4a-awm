@@ -42,7 +42,8 @@ app.post('/createTask',function(req,res){
     console.log("Parametre Reçu = "+req.body.text);
 
     var task = {
-        name : req.body.text
+        name : req.body.text,
+        done : false
     }
 
     
@@ -64,6 +65,24 @@ app.delete('/DeleteTaskOne/:id',function(req,res){
 
     //Appel de la fonction pour supprimer
     dataLayer.deleteTaskOne(task, function(laliste){
+        //Si supprimé, mise à jour de la liste
+        console.log("Liste Mise à Jour.")
+        res.send(laliste);
+    });
+});
+
+    // Mise à jour d'une tache dans la liste
+app.post('/Task_Done/:id',function(req,res){
+    //Debugage
+    console.log("Je veux mettre à jour : "+ req.params.id);
+
+    //Création du JSON de l'élément à supprimer
+    var task = {
+        _id : req.params.id
+    }
+
+    //Appel de la fonction pour supprimer
+    dataLayer.updateTaskDone(task, function(laliste){
         //Si supprimé, mise à jour de la liste
         console.log("Liste Mise à Jour.")
         res.send(laliste);

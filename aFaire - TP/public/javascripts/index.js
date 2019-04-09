@@ -52,4 +52,28 @@ function mainController($scope,$http){
                 console.log('Error : '+ data);
             });
     };
+
+    //Fonction de mise à jour d'un élément de la liste
+    $scope.Task_Done = function(id){
+        //Pour cela on utilise la fonction delete de js 
+        // en précisant l'id de l'élément à supprimer
+        console.log("Element à mettre à jour : "+ id);
+
+        $http.post('/Task_Done/'+id)
+            .success(function(maj){
+                console.log("Element Mis à jour");
+                $scope.laliste = maj;
+                console.log(maj);
+            })
+            .error(function(data){
+                console.log('Error : '+ data);
+            });
+    };
+
+
+
+
+
+
+
 }

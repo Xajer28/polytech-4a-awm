@@ -38,6 +38,18 @@ var dataLayer = {
         });
     },
 
+
+    updateTaskDone : function(task, cb){
+        var tache = {_id: ObjectId(task._id) };
+
+        DB.collection("PolyListe").updateOne(tache, {$set: {done : true}}, function(err, result) {
+            if (err) throw err;
+            DB.collection("PolyListe").find({}).toArray(function(err,docs){
+                cb(docs);
+            });
+        });
+    },
+
     deleteTaskOne : function(task,cb){
         var tache = {_id: ObjectId(task._id) };
         DB.collection("PolyListe").deleteOne(tache,function(err){
@@ -49,18 +61,10 @@ var dataLayer = {
         });
     }
 
-/*
 
-    updateTask : function(id, task, cb){
-        ObjectID = require('mongodb').ObjectID; 
-        var ident = {
-                _id : new ObjectID(id)
-        };
-        console.log(ident);
-        db.collection("Tasks").updateOne(ident, {$set: task}, function(err, result) {
-            cb();
-        });
-    }*/
+    
 };
+
+    
 
 module.exports = dataLayer;
