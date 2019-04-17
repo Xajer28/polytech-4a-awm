@@ -5,8 +5,9 @@
 //Accès à la base MongoDB
 var MongoClient = require('mongodb').MongoClient;
 //Lien de récupération
-var db = require("./db");
-var client = new MongoClient(db.url, { useNewUrlParser: true });
+var url = "mongodb+srv://xajer28:xajer28@cluster0-f2lls.mongodb.net/test?retryWrites=true"
+
+var client = new MongoClient(url, { useNewUrlParser: true });
 
 var DB;
 
@@ -15,7 +16,7 @@ var ObjectId = require('mongodb').ObjectID;
 //Définition des méthodes d'envoi des données
 var dataLayer = {
     init : function(cb){
-        client.connect(db.url,(err,database) =>{ 
+        client.connect(url,(err,database) =>{
             if (err) throw err;
             DB = database.db('Polydatabase');
             cb();
@@ -23,6 +24,7 @@ var dataLayer = {
     },
 
 
+    // Commandes Lists ##################################
     createTask : function(task,cb){
         DB.collection("PolyListe").insertOne(task, function(err){
             if(err) throw err;
@@ -57,14 +59,40 @@ var dataLayer = {
             DB.collection("PolyListe").find({}).toArray(function(err,docs){
                 cb(docs);
             });
-            
+
+        });
+    },
+
+
+    //Commandes Users ####################################################
+    createAccount : function(account,cb){
+        DB.collection("Polyusers").insertOne(account, function(err){
+            if(err) throw err;
+            DB.collection("Polyusers").find({}).toArray(function(err,docs){
+                cb(docs);
+            });
+        });
+    },
+
+    getAccountSet : function(cb){
+        DB.collection("Polyusers").find({}).toArray(function(err,docs){
+            cb(docs);
+        });
+    },
+
+
+    updateUser : function(task, cb){
+        var tache = {_id: ObjectId(task._id) };
+
+        DB.collection("Polyusers").updateOne(tache, {$set: {done : true}}, function(err, result) {
+            if (err) throw err;
+            DB.collection("Polyusers").find({}).toArray(function(err,docs){
+                cb(docs);
+            });
         });
     }
-
-
-    
 };
 
-    
+
 
 module.exports = dataLayer;

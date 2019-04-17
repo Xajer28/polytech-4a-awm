@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr" ng-app="ListeaFaire">
+<html lang="fr" ng-app="Connexion">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Titre en onglet -->
-    <title>Liste Choses a Faire</title>
+    <title>Connexion</title>
     <!-- Importation des scripts pour cette page -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
     <!-- Latest compiled and minified CSS -->
@@ -14,29 +14,33 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script src="javascripts/index.js"></script>
+    <script src="/views/users/index.js"></script>
 </head>
+
 
 
 <body ng-controller ='mainController'>
     <!-- Titre de la page  -->
-    <h1>La liste de Choses à faire</h1>
-    <!-- Compteur de taches dans la liste -->
-    <br> Nombre de Choses : {{ laliste.length }}
-    <!-- Affichage de la liste -->
-    <div id='todo-list'>
-        <div ng-repeat='x in laliste'>
-            <!-- Chaque ligne possède le nom et un bouton supprimer -->
-            <h5><button ng-click="deleteTaskOne(x._id)"> x </button> <button ng-click="Task_Done(x._id)"> V </button>  Nom : {{ x.name }} - Terminé : {{x.done}}</h5>
-        </div>
-    </div>
+    <h1>Page de Connexion</h1>
+    <!-- Compteur d'utilisateurs -->
+    <br> Nombre d'utilisateurs : {{ lalistedeco.length }}
 
     <!-- Formulaire de remplissage pour une nouvelle liste -->
-    <div id='todo-form'>
+    <div id='login-form'>
         <form>
-            <input type="text" placeholder="Tapez votre objectif" ng-model="formData.text">
-            <button type="submit" ng-click ="createTodo()">Ajouter</button>
+            <input type="text" placeholder="Login" ng-model="formData.text">
+            <input type="text" placeholder="Password" ng-model="Password">
+            <button type="submit" ng-click ="connect()">Se connecter</button>
         </form>
     </div>
+    <h2> Inscrivez-vous ! </h2>
+     <div id='signup-form'>
+        <form>
+            <input type="text" placeholder="Username" ng-model="formData.text">
+            <input type="password" placeholder="New Password" ng-model="Password">
+            <button type="submit" ng-click ="createAccount()">S'Inscrire</button>
+        </form>
+    </div>
+
 </body>
 </html>

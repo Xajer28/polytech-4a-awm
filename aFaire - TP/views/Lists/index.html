@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="ListeaFaire">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Titre en onglet -->
+    <title>Liste Choses a Faire</title>
+    <!-- Importation des scripts pour cette page -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="/views/users/index.js"></script>
+</head>
+
+
+<body ng-controller ='mainController'>
+    <!-- Titre de la page  -->
+    <h1>La liste de Choses à faire</h1>
+    <!-- Compteur de taches dans la liste -->
+    <br> Nombre de Choses : {{ laliste.length }}
+    <!-- Affichage de la liste -->
+    <div id='todo-list'>
+        <div ng-repeat='x in laliste'>
+            <!-- Chaque ligne possède le nom et un bouton supprimer -->
+            <h5><button ng-click="deleteTaskOne(x._id)"> x </button> <button ng-click="Task_Done(x._id)"> V </button>  Nom : {{ x.name }} - Terminé : {{x.done}}</h5>
+        </div>
+    </div>
+
+    <!-- Formulaire de remplissage pour une nouvelle liste -->
+    <div id='todo-form'>
+        <form>
+            <input type="text" placeholder="Tapez votre objectif" ng-model="formData.text">
+            <button type="submit" ng-click ="createTodo()">Ajouter</button>
+        </form>
+    </div>
+</body>
+</html>
