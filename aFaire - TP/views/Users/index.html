@@ -28,16 +28,17 @@
     <!-- Formulaire de remplissage pour une nouvelle liste -->
     <div id='login-form'>
         <form>
-            <input type="text" placeholder="Login" ng-model="formData.text">
-            <input type="text" placeholder="Password" ng-model="Password">
+            <input type="text" placeholder="Login" ng-model="formData.user">
+            <input type="text" placeholder="Password" ng-model="formData.pwd">
             <button type="submit" ng-click ="connect()">Se connecter</button>
         </form>
     </div>
+
     <h2> Inscrivez-vous ! </h2>
      <div id='signup-form'>
         <form>
-            <input type="text" placeholder="Username" ng-model="formData.text">
-            <input type="password" placeholder="New Password" ng-model="Password">
+            <input type="text" placeholder="Username" ng-model="formData.newuser">
+            <input type="password" placeholder="New Password" ng-model="formData.newpwd">
             <button type="submit" ng-click ="createAccount()">S'Inscrire</button>
         </form>
     </div>

@@ -10,6 +10,7 @@ function mainController($scope,$http){
     $scope.formData = {};
     //Récupération des données du serveur
     $http.get('/api/lalistedeco')
+
         //En cas de réussite
         .success(function(data){
             //On affecte les éléments de la liste à data
@@ -24,7 +25,7 @@ function mainController($scope,$http){
     //Fonction d'ajout d'un élément dans une liste
     $scope.createAccount = function(){
         //Envoi de l'élément dans le tableau de données
-        console.log("Création du Compte : "+$scope.formData.text);
+        console.log($scope.formData);
         $http.post('/createAccount',$scope.formData)
             .success(function(data){
                 $scope.formData = {};
