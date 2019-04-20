@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Titre en onglet -->
-    <title>Connexion</title>
+    <title>Bienvenue !</title>
     <!-- Importation des scripts pour cette page -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
     <!-- Latest compiled and minified CSS -->
@@ -17,14 +17,12 @@
     <script src="/views/users/LogIn/index.js"></script>
 </head>
 
-
-
 <body ng-controller ='mainController'>
     <!-- Titre de la page  -->
-    <h1>Page de Connexion</h1>
+    <h1>Bienvenue !</h1>
     <!-- Compteur d'utilisateurs -->
-    <br> Nombre d'utilisateurs : {{ lalistedeco.length }}
-
+    <br> <h3> Il y a actuellement {{ lalistedeco.length }} possesseurs de listes ! </h3>
+    <br> <h3>Rejoignez-nous !</h3>
     <!-- Formulaire de remplissage pour une nouvelle liste -->
     <div id='login-form'>
         <form>
@@ -34,7 +32,7 @@
         </form>
     </div>
     <!-- Partie Inscription -->
-    <h4>Nouvel Utilisateur ?<a href = "/views/users/signup/index.html"> Inscrivez-vous ! </a></h4>
+    <h4>Voulez-vous être le prochain ?<a href = "/views/users/signup/index.html"> Inscrivez-vous ! </a></h4>
     </div>
 
 </body>
