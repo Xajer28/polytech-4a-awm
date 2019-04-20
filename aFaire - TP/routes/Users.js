@@ -1,7 +1,7 @@
 var app = require('express').Router();
 var dataLayer = require('../dataLayer.js');
 app.get('/',function(req,res){
-    res.sendFile('index.html', { root: './views/Users'});
+    res.sendFile('index.html', { root: './views/Users/LogIn'});
 });
 
 app.get('/api/lalistedeco',function(req,res){
@@ -17,8 +17,11 @@ app.post('/createAccount',function(req,res){
     console.log(req.body);
 
     var account = {
-        username : req.body.newuser,
-        password :req.body.newpwd
+        Sexe :req.body.sexe,
+        Nom : req.body.nom,
+        Prenom :req.body.prenom,
+        Langue : req.body.lang,
+        Pwd : req.body.pwd1
     }
 
     dataLayer.createAccount(account,function(lalistedeco){

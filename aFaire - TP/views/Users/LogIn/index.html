@@ -14,7 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script src="/views/users/index.js"></script>
+    <script src="/views/users/LogIn/index.js"></script>
 </head>
 
 
@@ -30,17 +30,11 @@
         <form>
             <input type="text" placeholder="Login" ng-model="formData.user">
             <input type="text" placeholder="Password" ng-model="formData.pwd">
-            <button type="submit" ng-click ="connect()">Se connecter</button>
+            <button type="submit" ng-click ="Connect()">Se connecter</button>
         </form>
     </div>
-
-    <h2> Inscrivez-vous ! </h2>
-     <div id='signup-form'>
-        <form>
-            <input type="text" placeholder="Username" ng-model="formData.newuser">
-            <input type="password" placeholder="New Password" ng-model="formData.newpwd">
-            <button type="submit" ng-click ="createAccount()">S'Inscrire</button>
-        </form>
+    <!-- Partie Inscription -->
+    <h4>Nouvel Utilisateur ?<a href = "/views/users/signup/index.html"> Inscrivez-vous ! </a></h4>
     </div>
 
 </body>

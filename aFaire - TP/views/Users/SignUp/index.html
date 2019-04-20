@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="Inscription">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Titre en onglet -->
+    <title>Inscription</title>
+    <!-- Importation des scripts pour cette page -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="./index.js"></script>
+</head>
+    <body ng-controller ='mainController'>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <p><a href="/">Retour</a></p>
+        <h1>Page d'Inscription</h1>
+
+        <form id="signup-form" >
+                <p>Sexe : <input type="radio"  name="sexe" ng-model="formData.sexe" id ="radHom" value ="Homme" > Homme <input type="radio" name = "sexe" ng-model="formData.sexe" id ="radFem" value ="Femme"> Femme</p>
+                <p>Nom : <input type="text" id="txtNom" class ="TextBox" ng-model="formData.nom" onfocusout=veriftxtnom()></p>
+                <p>Prenom : <input type="text" id="txtPrenom" class ="TextBox" ng-model= "formData.prenom" onfocusout=veriftxtprenom()></p>
+                <p>Langue :
+                        <select id = "lang" ng-model="formData.lang">
+                                <option value="default"> </option>
+                                <option value="fr">Français</option>
+                                <option value="en">Anglais</option>
+                                <option value="es">Espagnol</option>
+                                <option value="ja">Japonais</option>
+                        </select>
+                </p>
+                <p>Tapez un mot de passe : <input type="password" id="password1" class ="TextBox" ng-model= "formData.pwd1" onfocusout=veriftxtpwd()></p>
+                <p>Retapez votre mot de passe : <input type="password" id="password2" class ="TextBox" ng-model= "formData.pwd2" onfocusout=veriftxtpwd()></p>
+                <p><input type="checkbox" class="toCheck" ng-model="formData.RGPD" id="AcceptRGPD"> J'accepte l'émission de mes données conformément aux régles imposées par la RGPD.</p>
+                <button type="submit" ng-click="createAccount()">Submit</button> <button type ="button" onclick="raz(signup-form)">Reset</button>
+        </form>
+</body>
+</html>
