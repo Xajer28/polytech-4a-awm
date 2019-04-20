@@ -80,6 +80,22 @@ function veriftxtnom(){
    return ok;
 }
 
+function veriftxtpseudo(){
+  var ok;
+  var champ = document.getElementById("txtPseudo");
+   if(champ.value.length < 2 || champ.value.length > 25)
+   {
+      surligne(champ, true);
+      ok=false;
+   }
+   else
+   {
+      surligne(champ, false);
+      ok= true;
+   }
+   return ok;
+}
+
 function veriftxtprenom(){
   var ok;
   var champ = document.getElementById("txtPrenom");
@@ -146,6 +162,11 @@ function verif(){
     alert("Veuillez resaisir le prenom");
   }
 
+  if (!(veriftxtpseudo())){
+    ok=false;
+    alert("Veuillez resaisir votre pseudo");
+  }
+
   if (!(veriftxtpwd())){
     ok=false;
     alert("Veuillez resaisir votre mot de passe");
@@ -169,10 +190,10 @@ function verif(){
     var opt = sel.options[sel.selectedIndex];
 
     switch(opt.value){
-      case 'fr' : alert("Félicitations"); break;
-      case 'en' : alert("Congratulations");break;
-      case 'es' : alert("Félicidades"); break;
-      case 'ja' : alert("おめでとう"); break;
+      case 'fr' : alert("Félicitations ! Vous venez de créer votre compte !"); break;
+      case 'en' : alert("Congratulations ! You made your account !");break;
+      case 'es' : alert("Felicitaciones! Acaba de crear su cuenta!"); break;
+      case 'ja' : alert("おめでとうございます！ アカウントを作成しました。"); break;
     }
   }
   return ok

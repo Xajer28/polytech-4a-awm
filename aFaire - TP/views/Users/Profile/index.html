@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Titre en onglet -->
-    <title>Bienvenue !</title>
+    <title>Profil de {{ user }}</title>
     <!-- Importation des scripts pour cette page -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
     <!-- Latest compiled and minified CSS -->
@@ -14,27 +14,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script src="/views/users/LogIn/index.js"></script>
+    <script src="/views/users/Profile/index.js"></script>
 </head>
 
 <body ng-controller ='mainController'>
-    <!-- Compteur d'utilisateurs -->
-    <br> <h3> Il y a actuellement {{ lalistedeco.length }} possesseurs de listes ! </h3>
-    <br> <h3>Rejoignez-nous !</h3>
+    <p><a href="/">Se déconnecter</a></p>
+    <br> <h3> Tu possèdes {{user.lists.length}} listes. </h3>
+
     <!-- Formulaire de remplissage pour une nouvelle liste -->
-    <div id='login-form'>
-        <form>
-            <input type="text" placeholder="Login" ng-model="formData.user">
-            <input type="password" placeholder="Password" ng-model="formData.pwd">
-            <button type="submit" ng-click ="Login()">Se connecter</button>
-        </form>
-        <div class="reponse connect">
-          <h6>{{reponse.text}}</h6>
+    <div id='user-lists'>
+      <br> <h3>Listes créées : </h3>
+        <div ng-repeat='x in user.lists'>
+            <!-- Chaque ligne possède le nom et un bouton supprimer -->
+            <h5><button ng-click="deleteTaskOne(x._id)"> x </button> <button ng-click="Task_Done(x._id)"> V </button> {{ x.name }}</h5>
         </div>
     </div>
-    <!-- Partie Inscription -->
-    <h4>Voulez-vous être le prochain ?<a href = "/signup"> Inscrivez-vous ! </a></h4>
-    </div>
+
 
 </body>
 </html>

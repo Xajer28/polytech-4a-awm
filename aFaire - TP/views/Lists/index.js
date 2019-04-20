@@ -14,7 +14,6 @@ function mainController($scope,$http){
         .success(function(data){
             //On affecte les éléments de la liste à data
             $scope.laliste = data;
-            console.log(data);
         })
         .error(function(data){
             //Sinon on affiche une erreur
@@ -38,7 +37,7 @@ function mainController($scope,$http){
 
     //Fonction de suppression d'un élément de la liste
     $scope.deleteTaskOne = function(id){
-        //Pour cela on utilise la fonction delete de js 
+        //Pour cela on utilise la fonction delete de js
         // en précisant l'id de l'élément à supprimer
         console.log("Element à supprimer : "+ id);
 
@@ -55,7 +54,7 @@ function mainController($scope,$http){
 
     //Fonction de mise à jour d'un élément de la liste
     $scope.Task_Done = function(id){
-        //Pour cela on utilise la fonction delete de js 
+        //Pour cela on utilise la fonction delete de js
         // en précisant l'id de l'élément à supprimer
         console.log("Element à mettre à jour : "+ id);
 

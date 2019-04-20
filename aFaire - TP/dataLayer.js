@@ -80,6 +80,18 @@ var dataLayer = {
         });
     },
 
+    findOneUser : function(user, cb){
+            DB.collection("Polyusers").find({"Pseudo" : user.user,"Pwd" : user.pwd}).toArray(function(err,docs){
+                cb(docs);
+            });
+    },
+
+    configProfile : function(user, cb){
+            DB.collection("Polyusers").find({"Pseudo" : user.user,"Pwd" : user.pwd}).toArray(function(err,docs){
+                cb(docs);
+            });
+    },
+
 
     updateUser : function(task, cb){
         var tache = {_id: ObjectId(task._id) };

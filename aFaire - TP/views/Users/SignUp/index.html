@@ -14,10 +14,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script src="./index.js"></script>
+    <script src="/views/Users/SignUp/index.js"></script>
 </head>
     <body ng-controller ='mainController'>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="/views/Users/SignUp/css/style.css">
         <p><a href="/">Se Connecter</a></p>
         <h1>Page d'Inscription</h1>
 
@@ -34,6 +34,7 @@
                                 <option value="ja">Japonais</option>
                         </select>
                 </p>
+                <p>Pseudo : <input type="text" id="txtPseudo" class ="TextBox" ng-model= "formData.pseudo" onfocusout=veriftxtpseudo()></p>
                 <p>Tapez un mot de passe : <input type="password" id="password1" class ="TextBox" ng-model= "formData.pwd1" onfocusout=veriftxtpwd()></p>
                 <p>Retapez votre mot de passe : <input type="password" id="password2" class ="TextBox" ng-model= "formData.pwd2" onfocusout=veriftxtpwd()></p>
                 <p><input type="checkbox" class="toCheck" ng-model="formData.RGPD" id="AcceptRGPD"> J'accepte l'émission de mes données conformément aux régles imposées par la RGPD.</p>
